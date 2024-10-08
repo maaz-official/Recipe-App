@@ -1,0 +1,61 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+web-build/
+.expo/
+out/
+coverage/
+
+# Expo
+.expo/
+web-build/
+dist/
+
+# Native files
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro bundler
+.metro/
+.metro-health-check*
+*.metro
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS files
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.*
+.env.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Miscellaneous
+*.log
+*.tmp
+*.cache
+
+# React Native specific
+*.sublime-project
+*.sublime-workspace
+*.swp

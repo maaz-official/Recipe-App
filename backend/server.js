@@ -87,7 +87,26 @@ const recipesArray = [
   
 
 // Middleware
-app.use(cors());
+// Define allowed origins
+const allowedOrigins = [
+  'http://localhost:8081', // React Native
+  'http://localhost:3000', // React web app (or your deployed web app)
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps) 
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials to be sent
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Connect to MongoDB
@@ -99,8 +118,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // ALL ROUTES
 app.use('/api/users', UserRoutes)
 
-// Example API route
-// Create an endpoint for fetching recipes
+// Sample Data
 app.get('/recipes', (req, res) => {
     res.json({ recipes: recipesArray });
   });
